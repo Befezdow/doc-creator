@@ -1,4 +1,4 @@
-import {FieldTypeName} from "../types";
+import { FieldTypeName } from '../types';
 
 interface CreateTemplateRequest {
     name: string;
@@ -15,4 +15,4 @@ interface GetTemplateResponse extends CreateTemplateRequest {
 export {
     CreateTemplateRequest,
     GetTemplateResponse,
-}
+};

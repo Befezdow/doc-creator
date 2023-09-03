@@ -3,5 +3,5 @@ type FieldType = string | number;
 
 export {
     FieldTypeName,
-    FieldType
-}
+    FieldType,
+};

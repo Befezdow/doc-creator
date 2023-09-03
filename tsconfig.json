@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "lib": ["es6"],
+    "lib": [
+      "es6"
+    ],
     "allowJs": true,
     "outDir": "build",
     "rootDir": "src",
@@ -12,6 +14,6 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "sourceMap": true,
+    "sourceMap": true
   }
 }

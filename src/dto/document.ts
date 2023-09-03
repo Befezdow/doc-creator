@@ -1,4 +1,4 @@
-import {FieldType} from "../types";
+import { FieldType } from '../types';
 
 interface CreateDocumentRequest {
     name: string;
@@ -14,7 +14,7 @@ interface GetDocumentResponse extends Omit<CreateDocumentRequest, 'templateId'> 
     template: {
         id: number;
         name: string;
-    }
+    };
 }
 
 interface UpdateDocumentRequest {
@@ -29,4 +29,4 @@ export {
     CreateDocumentRequest,
     GetDocumentResponse,
     UpdateDocumentRequest,
-}
+};

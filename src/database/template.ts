@@ -1,7 +1,7 @@
-import {DeepPartial} from "typeorm/common/DeepPartial";
-import {Template} from "../dbo/template.entity";
-import {UnknownEntityError} from "../errors";
-import {DataSourceInstance} from "./data-source";
+import { DeepPartial } from 'typeorm/common/DeepPartial';
+import { Template } from '../dbo/template.entity';
+import { UnknownEntityError } from '../errors';
+import { DataSourceInstance } from './data-source';
 
 const repository = DataSourceInstance.getRepository(Template);
 
@@ -11,7 +11,7 @@ async function createTemplate(value: DeepPartial<Template>): Promise<number> {
 }
 
 async function getTemplate(id: number): Promise<Template> {
-    const result = await repository.findOneBy({id});
+    const result = await repository.findOneBy({ id });
 
     if (result === null) {
         throw new UnknownEntityError(id, `Can't find template with id ${id}`);
@@ -22,5 +22,5 @@ async function getTemplate(id: number): Promise<Template> {
 
 export {
     createTemplate,
-    getTemplate
-}
+    getTemplate,
+};

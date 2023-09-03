@@ -1,5 +1,5 @@
-import {DocumentField} from "../dbo/document.entity";
-import {TemplateField} from "../dbo/template.entity";
+import { DocumentField } from '../dbo/document.entity';
+import { TemplateField } from '../dbo/template.entity';
 
 function isValidIsoDateTime(value: unknown) {
     if (typeof value !== 'string') {
@@ -32,19 +32,19 @@ function checkDocumentCreatedFields(documentFields: Array<DocumentField>, templa
         }
 
         switch (templateField.type) {
-            case "date": {
+            case 'date': {
                 if (!isValidIsoDateTime(documentField.value)) {
                     return false;
                 }
                 break;
             }
-            case "number": {
+            case 'number': {
                 if (!isValidNumber(documentField.value)) {
                     return false;
                 }
                 break;
             }
-            case "string": {
+            case 'string': {
                 if (!isValidString(documentField.value)) {
                     return false;
                 }

@@ -1,5 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm"
-import {FieldTypeName} from "../types";
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { FieldTypeName } from '../types';
 
 type TemplateField = { name: string, type: FieldTypeName };
 
@@ -18,7 +18,7 @@ class Template {
     @Column({
         type: 'jsonb',
         array: false,
-        default: () => "'[]'",
+        default: () => '\'[]\'',
         nullable: false,
     })
     public attributeFields!: Array<TemplateField>;
@@ -26,5 +26,5 @@ class Template {
 
 export {
     Template,
-    TemplateField
-}
+    TemplateField,
+};

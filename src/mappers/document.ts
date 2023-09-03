@@ -1,6 +1,6 @@
-import {DeepPartial} from "typeorm/common/DeepPartial";
-import {Document} from "../dbo/document.entity";
-import {CreateDocumentRequest, GetDocumentResponse, UpdateDocumentRequest} from "../dto/document";
+import { DeepPartial } from 'typeorm/common/DeepPartial';
+import { Document } from '../dbo/document.entity';
+import { CreateDocumentRequest, GetDocumentResponse, UpdateDocumentRequest } from '../dto/document';
 
 function mapCreateRequestToDbo(value: CreateDocumentRequest): DeepPartial<Document> {
     return {
@@ -11,7 +11,7 @@ function mapCreateRequestToDbo(value: CreateDocumentRequest): DeepPartial<Docume
         attributeFields: value.attributeFields.map(elem => ({
             name: elem.name,
             value: elem.value,
-        }))
+        })),
     };
 }
 
@@ -43,7 +43,7 @@ function mapDboToGetResponse(value: Document): GetDocumentResponse {
         attributeFields: value.attributeFields.map(elem => ({
             name: elem.name,
             value: elem.value,
-        }))
+        })),
     };
 }
 

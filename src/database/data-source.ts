@@ -1,8 +1,8 @@
-import { DataSource } from "typeorm";
-import {config} from "../config";
+import { DataSource } from 'typeorm';
+import { config } from '../config';
 
 export const DataSourceInstance = new DataSource({
-    type: "postgres",
+    type: 'postgres',
     host: config.postgres.host,
     port: config.postgres.port,
     username: config.postgres.username,

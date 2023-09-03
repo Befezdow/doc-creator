@@ -1,6 +1,6 @@
-import {DeepPartial} from "typeorm/common/DeepPartial";
-import {Template} from "../dbo/template.entity";
-import {CreateTemplateRequest, GetTemplateResponse} from "../dto/template";
+import { DeepPartial } from 'typeorm/common/DeepPartial';
+import { Template } from '../dbo/template.entity';
+import { CreateTemplateRequest, GetTemplateResponse } from '../dto/template';
 
 function mapCreateRequestToDbo(value: CreateTemplateRequest): DeepPartial<Template> {
     return {
@@ -8,7 +8,7 @@ function mapCreateRequestToDbo(value: CreateTemplateRequest): DeepPartial<Templa
         attributeFields: value.attributeFields.map(elem => ({
             name: elem.name,
             type: elem.type,
-        }))
+        })),
     };
 }
 
@@ -19,7 +19,7 @@ function mapDboToGetResponse(value: Template): GetTemplateResponse {
         attributeFields: value.attributeFields.map(elem => ({
             name: elem.name,
             type: elem.type,
-        }))
+        })),
     };
 }
 

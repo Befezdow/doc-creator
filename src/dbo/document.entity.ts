@@ -1,6 +1,6 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm"
-import {FieldType} from "../types";
-import {Template} from "./template.entity";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { FieldType } from '../types';
+import { Template } from './template.entity';
 
 type DocumentField = { name: string, value: FieldType };
 
@@ -19,7 +19,7 @@ class Document {
     @Column({
         type: 'jsonb',
         array: false,
-        default: () => "'[]'",
+        default: () => '\'[]\'',
         nullable: false,
     })
     public attributeFields!: Array<DocumentField>;
@@ -32,5 +32,5 @@ class Document {
 
 export {
     Document,
-    DocumentField
-}
+    DocumentField,
+};

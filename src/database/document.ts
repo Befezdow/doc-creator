@@ -1,16 +1,16 @@
-import {DeepPartial} from "typeorm/common/DeepPartial";
-import {DataSourceInstance} from "./data-source";
-import {Document, DocumentField} from "../dbo/document.entity";
-import {Template} from "../dbo/template.entity";
-import {InvalidFieldsError, InvalidTemplateError, UnknownEntityError} from "../errors";
-import {checkDocumentCreatedFields, checkDocumentUpdatedFields} from "./utils";
+import { DeepPartial } from 'typeorm/common/DeepPartial';
+import { DataSourceInstance } from './data-source';
+import { Document, DocumentField } from '../dbo/document.entity';
+import { Template } from '../dbo/template.entity';
+import { InvalidFieldsError, InvalidTemplateError, UnknownEntityError } from '../errors';
+import { checkDocumentCreatedFields, checkDocumentUpdatedFields } from './utils';
 
 const documentsRepo = DataSourceInstance.getRepository(Document);
 const templatesRepo = DataSourceInstance.getRepository(Template);
 
 async function createDocument(value: DeepPartial<Document>): Promise<number> {
     const templateId = value.template!.id!;
-    const template = await templatesRepo.findOneBy({id: templateId});
+    const template = await templatesRepo.findOneBy({ id: templateId });
     if (template === null) {
         throw new InvalidTemplateError(templateId, `Template with id ${value.template?.id} not found`);
     }
@@ -26,7 +26,7 @@ async function createDocument(value: DeepPartial<Document>): Promise<number> {
 }
 
 async function updateDocument(id: number, value: DeepPartial<Document>): Promise<void> {
-    const document = await documentsRepo.findOneBy({id});
+    const document = await documentsRepo.findOneBy({ id });
     if (document === null) {
         throw new UnknownEntityError(id, `Can't find document with id ${id}`);
     }
@@ -41,13 +41,13 @@ async function updateDocument(id: number, value: DeepPartial<Document>): Promise
 
     await documentsRepo.update(
         id,
-        value
+        value,
     );
 }
 
 async function getDocument(id: number): Promise<Document> {
     const result = await documentsRepo.findOne({
-        where: {id},
+        where: { id },
         relations: ['template'],
     });
 
@@ -70,4 +70,4 @@ export {
     updateDocument,
     getDocument,
     deleteDocument,
-}
+};

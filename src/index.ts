@@ -1,9 +1,9 @@
-import express, {Express, Response} from 'express';
-import { ValidationError } from "express-json-validator-middleware";
-import {ErrorHandleFunction} from "connect";
-import {DataSourceInstance} from "./database/data-source";
-import {config} from "./config";
-import {addRouteHandlers} from "./routes";
+import express, { Express, Response } from 'express';
+import { ValidationError } from 'express-json-validator-middleware';
+import { ErrorHandleFunction } from 'connect';
+import { DataSourceInstance } from './database/data-source';
+import { config } from './config';
+import { addRouteHandlers } from './routes';
 
 const handleError: ErrorHandleFunction = (error, request, response, next) => {
     // Check the error is a validation error
@@ -15,15 +15,15 @@ const handleError: ErrorHandleFunction = (error, request, response, next) => {
         // Pass error on if not a validation error
         next(error);
     }
-}
+};
 
 async function init() {
     // init database
     try {
         await DataSourceInstance.initialize();
-        console.log("Data Source has been initialized!")
+        console.log('Data Source has been initialized!');
     } catch (err) {
-        console.error("Error during Data Source initialization:", err);
+        console.error('Error during Data Source initialization:', err);
         return;
     }
 

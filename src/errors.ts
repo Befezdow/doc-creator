@@ -1,11 +1,11 @@
-import {DocumentField} from "./dbo/document.entity";
+import { DocumentField } from './dbo/document.entity';
 
 abstract class DatabaseError extends Error {
     protected constructor(message = 'Detected internal database error') {
         super(message);
         Object.setPrototypeOf(this, DatabaseError.prototype);
 
-        this.name = "DatabaseError";
+        this.name = 'DatabaseError';
     }
 }
 
@@ -14,7 +14,7 @@ abstract class InvalidDataStructureError extends DatabaseError {
         super(message);
         Object.setPrototypeOf(this, InvalidDataStructureError.prototype);
 
-        this.name = "InvalidDataStructureError";
+        this.name = 'InvalidDataStructureError';
     }
 }
 
@@ -25,7 +25,7 @@ class InvalidTemplateError extends InvalidDataStructureError {
         super(message);
         Object.setPrototypeOf(this, InvalidTemplateError.prototype);
 
-        this.name = "InvalidTemplateError";
+        this.name = 'InvalidTemplateError';
         this.templateId = templateId;
     }
 }
@@ -37,7 +37,7 @@ class InvalidFieldsError extends InvalidDataStructureError {
         super(message);
         Object.setPrototypeOf(this, InvalidFieldsError.prototype);
 
-        this.name = "InvalidFieldsError";
+        this.name = 'InvalidFieldsError';
         this.fieldsData = fieldsData;
     }
 }
@@ -49,7 +49,7 @@ class UnknownEntityError extends DatabaseError {
         super(message);
         Object.setPrototypeOf(this, UnknownEntityError.prototype);
 
-        this.name = "UnknownEntityError";
+        this.name = 'UnknownEntityError';
         this.entityId = entityId;
     }
 }
@@ -60,4 +60,4 @@ export {
     InvalidFieldsError,
     UnknownEntityError,
     InvalidDataStructureError,
-}
+};
