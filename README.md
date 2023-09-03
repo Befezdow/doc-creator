@@ -1,2 +1,4 @@
-# doc-creator
-Small service for creating templates and docs based on them
+psql -h localhost -p 5432 --user postgres
+
+CREATE USER test WITH PASSWORD 'test';
+CREATE DATABASE "doc-creator" OWNER test;
